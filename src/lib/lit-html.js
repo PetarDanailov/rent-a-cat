@@ -1,8 +1,6 @@
-import {render as baseRender,html} from "../../node_modules/lit-html/lit-html.js"
-const root = document.getElementById("root");
-const render = (template) => baseRender(template,root)  
+import {render,html} from "../../node_modules/lit-html/lit-html.js"
+
 export {
   render,
-  baseRender,
   html,
 }
