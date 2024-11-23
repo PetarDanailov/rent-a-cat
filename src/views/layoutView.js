@@ -1,6 +1,6 @@
 import { render, html } from "../lib/lit-html.js";
 const rootElement = document.getElementById("root");
-const template = (body) => html`
+const template = (body,ctx) => html`
 
 <div class="h-full bg-white">
     <header class="absolute inset-x-0 top-0 z-50">
@@ -23,9 +23,15 @@ const template = (body) => html`
           <a href="/cats" class="text-sm/6 font-semibold text-gray-900">Cats</a>
           <a href="/createOffer" class="text-sm/6 font-semibold text-gray-900">Post Cat</a>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        ${ctx.isAuthenticated
+          ? html `<div class="hidden lg:flex lg:flex-1 lg:justify-end"> 
+          <a href="/logout" class="text-sm/6 font-semibold text-gray-900">Log out <span aria-hidden="true">&rarr;</span></a>
+        </div>`
+        : html`<div class="hidden lg:flex lg:flex-1 lg:justify-end"> 
           <a href="/login" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
-        </div>
+        </div>`
+        }
+        
       </nav>
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -66,7 +72,7 @@ const template = (body) => html`
 </div>`
 export default function(ctx,next) {
   ctx.render = (templateResult) => {
-    render(template(templateResult),rootElement)
+    render(template(templateResult,ctx),rootElement)
   } 
   next()
 }
