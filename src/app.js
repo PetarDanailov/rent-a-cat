@@ -3,7 +3,9 @@ import page from "./lib/page.js";
 import catsView from "./views/catsView.js";
 import homeView from "./views/homeView.js";
 import layoutView from "./views/layoutView.js";
+import loginView from "./views/loginView.js";
 page(layoutView )
 page('/',homeView)
 page('/cats',catsView)
+page('/login',loginView)
 page()
