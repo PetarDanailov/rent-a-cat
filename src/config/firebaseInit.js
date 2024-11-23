@@ -2,7 +2,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
 ;
 // TODO: Add SDKs for Firebase products that you want to use
-import {getAuth} from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
+import {getAuth,setPersistence,browserLocalPersistence} from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
+import page from '../lib/page.js';
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,4 +20,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth  = getAuth(app)
+setPersistence(auth,browserLocalPersistence).then(() => {
+  page.redirect(location.pathname)
+}).catch(()=> {
+  console.log("It does not persist");
+})
 export default app
