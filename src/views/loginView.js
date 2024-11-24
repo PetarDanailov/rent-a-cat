@@ -1,6 +1,6 @@
 import {html} from "../lib/lit-html.js"
 import { auth } from "../config/firebaseInit.js";
-import {signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 import page from "../lib/page.js";
 
 const template = (onSubmit) => html`
