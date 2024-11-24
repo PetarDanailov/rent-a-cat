@@ -21,6 +21,7 @@ const template = (body,ctx) => html`
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
           <a href="/cats" class="text-sm/6 font-semibold text-gray-900">Cats</a>
+          
           <a href="/createOffer" class="text-sm/6 font-semibold text-gray-900">Post Cat</a>
         </div>
         ${ctx.isAuthenticated
@@ -28,6 +29,7 @@ const template = (body,ctx) => html`
           <a href="/logout" class="text-sm/6 font-semibold text-gray-900">Log out <span aria-hidden="true">&rarr;</span></a>
         </div>`
         : html`<div class="hidden lg:flex lg:flex-1 lg:justify-end"> 
+          <a href="/register" class="text-sm/6 font-semibold text-gray-900 px-10">Register</a>
           <a href="/login" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>`
         }

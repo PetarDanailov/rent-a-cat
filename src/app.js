@@ -6,10 +6,12 @@ import homeView from "./views/homeView.js";
 import layoutView from "./views/layoutView.js";
 import loginView from "./views/loginView.js";
 import logoutView from "./views/logoutView.js";
+import registerView from "./views/registerView.js";
 page(authMiddleWare)
 page(layoutView)
 page('/',homeView)
 page('/cats',catsView)
 page('/login',loginView)
 page('/logout',logoutView)
+page('/register',registerView)
 page()
